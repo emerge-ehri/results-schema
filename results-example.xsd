@@ -1,107 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:emerge="http://emerge.mc.vanderbilt.edu/sequence-result" targetNamespace="http://emerge.mc.vanderbilt.edu/sequence-result">
-  <xs:element name="org.pcpgm.gis.fedmsg.v4.Envelope">
-    <xs:complexType>
-      <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="origin">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="org.pcpgm.gis.fedmsg.v4.EnvelopeSender" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:choice minOccurs="0" maxOccurs="unbounded">
-                    <xs:element name="senderId" type="xs:string" minOccurs="0" />
-                    <xs:element name="envelopeId" type="xs:string" minOccurs="0" />
-                    <xs:element name="timestampMs" type="xs:string" minOccurs="0" />
-                  </xs:choice>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="recipients">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="string" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="objMessage">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="report" minOccurs="1" maxOccurs="1">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="reportIdentifier" type="xs:string" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="indicationText" type="xs:string" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="reportDoc" type="xs:base64Binary" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="reportDocType" type="xs:string" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="status" type="xs:string" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="caseType" type="xs:string" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="labStatus" type="xs:string" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="indicationCode" type="emerge:Code" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="genomicSource" type="emerge:Code" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="overallInterpretation" type="emerge:Code" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="testType" type="emerge:Code" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="editedBy" type="emerge:ByUserOnDate" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="statusBy" type="emerge:ByUserOnDate" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="order" type="emerge:Order" minOccurs="0" maxOccurs="1" />
-                    <xs:element name="patient" type="emerge:Patient" minOccurs="1" maxOccurs="1" />
-                    <xs:element name="physicians" type="emerge:Physician" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="reportVariants" type="emerge:ReportVariant" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="reportAssays" type="emerge:ReportAssay" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="specimens" type="emerge:Specimen" minOccurs="0" maxOccurs="unbounded" />
-                    <xs:element name="patientDiseases" minOccurs="1" maxOccurs="unbounded">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="org.pcpgm.gis.fedmsg.v4.ReportDisease" type="emerge:ReportDisease" minOccurs="0" maxOccurs="unbounded" />
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="interpretedDiseases" minOccurs="0" maxOccurs="1">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element name="org.pcpgm.gis.fedmsg.v4.ReportDisease" type="emerge:ReportDisease" minOccurs="1" maxOccurs="unbounded" />
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="refVariants" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceVariant" type="emerge:ReferenceVariant" minOccurs="0" maxOccurs="unbounded" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="refGenes" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceGene" type="emerge:ReferenceGene" minOccurs="0" maxOccurs="unbounded" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="refAssayVersions" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceAssayVersion" type="emerge:ReferenceAssayVersion" minOccurs="0" maxOccurs="unbounded" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="refDiseases" minOccurs="0" maxOccurs="unbounded">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceDisease" type="emerge:ReferenceDisease" minOccurs="0" maxOccurs="unbounded" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-            <xs:attribute name="class" type="xs:string" />
-          </xs:complexType>
-        </xs:element>
-      </xs:choice>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="">
 <xs:complexType name="Code">
     <xs:choice maxOccurs="unbounded">
       <xs:element name="codeSystem" type="xs:string" minOccurs="1" maxOccurs="1" />
@@ -137,7 +35,7 @@
   <xs:complexType name="ReportDisease">
     <xs:choice maxOccurs="unbounded">
       <xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="diseaseCode" type="emerge:Code" minOccurs="1" maxOccurs="1" />
+      <xs:element name="diseaseCode" type="Code" minOccurs="1" maxOccurs="1" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="Order">
@@ -165,11 +63,11 @@
       <xs:element name="raceOrEthnicity" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="org.pcpgm.gis.fedmsg.v4.Code" type="emerge:Code" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="org.pcpgm.gis.fedmsg.v4.Code" type="Code" minOccurs="0" maxOccurs="unbounded" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <xs:element name="sex" type="emerge:Code" minOccurs="0" maxOccurs="1" />
+      <xs:element name="sex" type="Code" minOccurs="0" maxOccurs="1" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="PhysicianLocation">
@@ -201,7 +99,7 @@
             <xs:element name="deliveryLocations" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="org.pcpgm.gis.fedmsg.v4.PhysicianLocation" type="emerge:PhysicianLocation" minOccurs="0" maxOccurs="unbounded" />
+                  <xs:element name="org.pcpgm.gis.fedmsg.v4.PhysicianLocation" type="PhysicianLocation" minOccurs="0" maxOccurs="unbounded" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -243,15 +141,15 @@
             <xs:element name="forcedIncidental" type="xs:boolean" minOccurs="1" maxOccurs="1" />
             <xs:element name="notInterpreted" type="xs:boolean" minOccurs="1" maxOccurs="1" />
             <xs:element name="categoryType" type="xs:string" minOccurs="0" maxOccurs="1" />
-            <xs:element name="nestedVariants" type="emerge:ReportVariant" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="nestedVariants" type="ReportVariant" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="alleleName" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="compoundType" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="genomeBuildName" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="patientDnaChange" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="structuralChangeType" type="xs:string" minOccurs="0" maxOccurs="1" />
-            <xs:element name="alleleState" type="emerge:Code" minOccurs="0" maxOccurs="1" />
-            <xs:element name="category" type="emerge:Code" minOccurs="0" maxOccurs="1" />
-            <xs:element name="genomicSource" type="emerge:Code" minOccurs="0" maxOccurs="1" />
+            <xs:element name="alleleState" type="Code" minOccurs="0" maxOccurs="1" />
+            <xs:element name="category" type="Code" minOccurs="0" maxOccurs="1" />
+            <xs:element name="genomicSource" type="Code" minOccurs="0" maxOccurs="1" />
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -262,17 +160,17 @@
       <xs:element name="org.pcpgm.gis.fedmsg.v4.Specimen" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:choice maxOccurs="unbounded">
-            <xs:element name="anatomicalLocation" type="emerge:Code" minOccurs="0" maxOccurs="1" />
+            <xs:element name="anatomicalLocation" type="Code" minOccurs="0" maxOccurs="1" />
             <xs:element name="comment" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="label" type="xs:string" minOccurs="1" maxOccurs="1" />
             <xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="metastatic" type="xs:boolean" minOccurs="0" maxOccurs="1" />
-            <xs:element name="differentiation" type="emerge:Code" minOccurs="0" maxOccurs="1" />
+            <xs:element name="differentiation" type="Code" minOccurs="0" maxOccurs="1" />
             <xs:element name="otherAnatomicalLocation" type="xs:string" minOccurs="0" maxOccurs="1" />
-            <xs:element name="tumorType" type="emerge:Code" minOccurs="0" maxOccurs="1" />
+            <xs:element name="tumorType" type="Code" minOccurs="0" maxOccurs="1" />
             <xs:element name="otherTumorType" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="percentTumor" type="xs:string" minOccurs="0" maxOccurs="1" />
-            <xs:element name="type" type="emerge:Code" minOccurs="1" maxOccurs="1" />
+            <xs:element name="type" type="Code" minOccurs="1" maxOccurs="1" />
             <xs:element name="collectionDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
             <xs:element name="receivedDate" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
           </xs:choice>
@@ -285,8 +183,14 @@
       <xs:element name="categoryType" type="xs:string" minOccurs="1" maxOccurs="1" />
       <xs:element name="inheritance" type="xs:int" minOccurs="1" maxOccurs="1" />
       <xs:element name="interpretationText" type="xs:string" minOccurs="1" maxOccurs="1" />
-      <xs:element name="categoryCode" type="emerge:Code" minOccurs="1" maxOccurs="1" />
-      <xs:element name="diseaseCodes" type="emerge:Code" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="categoryCode" type="Code" minOccurs="1" maxOccurs="1" />
+      <xs:element name="diseaseCodes" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="org.pcpgm.gis.fedmsg.v4.Code" type="Code" minOccurs="0" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="ReferenceVariant">
@@ -302,11 +206,11 @@
       <xs:element name="aminoAcidChange" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="aminoAcidChangeType" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="chromosome" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="otherExternalIds" type="emerge:CodedValue" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="otherExternalIds" type="CodedValue" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="numberOfFamiliesReported" type="xs:int" minOccurs="0" maxOccurs="1" />
       <xs:element name="numberOfTimesReported" type="xs:int" minOccurs="0" maxOccurs="1" />
       <xs:element name="aliasNames" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
-      <xs:element name="nestedVariants" type="emerge:ReferenceVariant" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="nestedVariants" type="ReferenceVariant" minOccurs="0" maxOccurs="unbounded" />
       <xs:element name="compoundType" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="newInterpRevisionProposedOn" type="xs:dateTime" minOccurs="0" maxOccurs="1" />
       <xs:element name="reportAlleleName" type="xs:string" minOccurs="0" maxOccurs="1" />
@@ -316,7 +220,7 @@
       <xs:element name="sourceId" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="splicingImpact" type="xs:string" minOccurs="1" maxOccurs="1" />
       <xs:element name="structuralChangeType" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="geneIdentifier" type="emerge:Identifier" minOccurs="0" maxOccurs="1" />
+      <xs:element name="geneIdentifier" type="Identifier" minOccurs="0" maxOccurs="1" />
       <xs:element name="alignments" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
@@ -338,7 +242,7 @@
       <xs:element name="references" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="org.pcpgm.gis.fedmsg.v4.Reference" type="emerge:Reference" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="org.pcpgm.gis.fedmsg.v4.Reference" type="Reference" minOccurs="0" maxOccurs="unbounded" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -346,12 +250,12 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element name="variantExternalId" type="xs:long" minOccurs="1" maxOccurs="1" />
-            <xs:element name="contentApproval" type="emerge:ByUserOnDate" minOccurs="1" maxOccurs="1" />
-            <xs:element name="approval" type="emerge:ByUserOnDate" minOccurs="0" maxOccurs="1" />
+            <xs:element name="contentApproval" type="ByUserOnDate" minOccurs="1" maxOccurs="1" />
+            <xs:element name="approval" type="ByUserOnDate" minOccurs="0" maxOccurs="1" />
             <xs:element name="interpretations" minOccurs="1" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="org.pcpgm.gis.fedmsg.v4.VariantInterp" type="emerge:VariantInterp" minOccurs="0" maxOccurs="unbounded" />
+                  <xs:element name="org.pcpgm.gis.fedmsg.v4.VariantInterp" type="VariantInterp" minOccurs="0" maxOccurs="unbounded" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -390,7 +294,7 @@
       <xs:element name="identifiers" minOccurs="1" maxOccurs="unbounded">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="org.pcpgm.gis.fedmsg.v4.Identifier" type="emerge:Identifier" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="org.pcpgm.gis.fedmsg.v4.Identifier" type="Identifier" minOccurs="0" maxOccurs="unbounded" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -417,7 +321,116 @@
       <xs:element name="desc" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1" />
       <xs:element name="inheritance" type="xs:string" minOccurs="0" maxOccurs="1" />
-      <xs:element name="diseaseCodes" type="emerge:Code" minOccurs="1" maxOccurs="unbounded" />
+      <xs:element name="diseaseCodes" minOccurs="1" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="org.pcpgm.gis.fedmsg.v4.Code" type="Code" minOccurs="1" maxOccurs="unbounded" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:choice>
   </xs:complexType>
+
+  <xs:element name="org.pcpgm.gis.fedmsg.v4.Envelope">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="origin">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="org.pcpgm.gis.fedmsg.v4.EnvelopeSender" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="senderId" type="xs:string" minOccurs="0" />
+                    <xs:element name="envelopeId" type="xs:string" minOccurs="0" />
+                    <xs:element name="timestampMs" type="xs:string" minOccurs="0" />
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="recipients">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="string" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="objMessage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="report" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:choice maxOccurs="unbounded">
+                    <xs:element name="reportIdentifier" type="xs:string" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="indicationText" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="reportDoc" type="xs:base64Binary" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="reportDocType" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="status" type="xs:string" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="caseType" type="xs:string" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="labStatus" type="xs:string" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="indicationCode" type="Code" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="genomicSource" type="Code" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="overallInterpretation" type="Code" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="testType" type="Code" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="editedBy" type="ByUserOnDate" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="statusBy" type="ByUserOnDate" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="order" type="Order" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="patient" type="Patient" minOccurs="1" maxOccurs="1" />
+                    <xs:element name="physicians" type="Physician" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="reportVariants" type="ReportVariant" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="reportAssays" type="ReportAssay" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="specimens" type="Specimen" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="patientDiseases" minOccurs="1" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="org.pcpgm.gis.fedmsg.v4.ReportDisease" type="ReportDisease" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="interpretedDiseases" minOccurs="0" maxOccurs="1">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="org.pcpgm.gis.fedmsg.v4.ReportDisease" type="ReportDisease" minOccurs="1" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="refVariants" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceVariant" type="ReferenceVariant" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="refGenes" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceGene" type="ReferenceGene" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="refAssayVersions" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceAssayVersion" type="ReferenceAssayVersion" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="refDiseases" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceDisease" type="ReferenceDisease" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="class" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
