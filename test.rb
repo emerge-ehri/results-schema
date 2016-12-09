@@ -9,6 +9,6 @@ def validate(document_path, schema_path)
   schema.validate(document)
 end
 
-validate('results-example.xml', 'results-example.xsd').each do |error|
+validate('emerge-seq-example.xml', 'emerge-seq-schema.xsd').each do |error|
   puts "#{error.line}: #{error.message}"
 end
