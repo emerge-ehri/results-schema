@@ -135,8 +135,7 @@
       <xs:element name="org.pcpgm.gis.fedmsg.v4.ReportAssay" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:choice maxOccurs="unbounded">
-            <!-- Optional element to be returned for GeneInsight results -->
-            <xs:element name="assayVersionExternalId" type="xs:long" minOccurs="0" maxOccurs="1" />
+            <xs:element name="assayVersionExternalId" type="xs:long" minOccurs="1" maxOccurs="1" />
             <xs:element name="testName" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="testCode" type="xs:string" minOccurs="1" maxOccurs="1" />
             <xs:element name="known" type="xs:boolean" minOccurs="1" maxOccurs="1" />
@@ -150,8 +149,7 @@
       <xs:element name="org.pcpgm.gis.fedmsg.v4.ReportVariant" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:choice maxOccurs="unbounded">
-            <!-- Optional element to be returned for GeneInsight results -->
-            <xs:element name="externalId" type="xs:long" minOccurs="0" maxOccurs="1" />
+            <xs:element name="externalId" type="xs:string" minOccurs="1" maxOccurs="1" />
             <xs:element name="transcriptId" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="geneRegion" type="xs:string" minOccurs="0" maxOccurs="1" />
             <xs:element name="dnaChange" type="xs:string" minOccurs="0" maxOccurs="1" />
@@ -176,6 +174,8 @@
             <xs:element name="genomicSource" type="Code" minOccurs="0" maxOccurs="1" />
             <!-- Optional element to be returned for Baylor sites -->
             <xs:element name="confirmedStatus" type="ConfirmedStatus" minOccurs="0" maxOccurs="1" />
+            <!-- Optional element to be returned for Baylor sites -->
+            <xs:element name="notes" type="xs:string" minOccurs="0" maxOccurs="1" />
           </xs:choice>
         </xs:complexType>
       </xs:element>
@@ -221,7 +221,7 @@
   </xs:complexType>
   <xs:complexType name="ReferenceVariant">
     <xs:choice maxOccurs="unbounded">
-      <xs:element name="externalId" type="xs:long" minOccurs="0" maxOccurs="1" />
+      <xs:element name="externalId" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="transcriptId" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="geneRegion" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="genomeBuildName" type="xs:string" minOccurs="0" maxOccurs="1" />
@@ -275,8 +275,7 @@
       <xs:element name="currentInterpRevision" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence>
-            <!-- Optional element to be returned for GeneInsight results -->
-            <xs:element name="variantExternalId" type="xs:long" minOccurs="0" maxOccurs="1" />
+            <xs:element name="variantExternalId" type="xs:string" minOccurs="1" maxOccurs="1" />
             <xs:element name="contentApproval" type="ByUserOnDate" minOccurs="1" maxOccurs="1" />
             <xs:element name="approval" type="ByUserOnDate" minOccurs="0" maxOccurs="1" />
             <xs:element name="interpretations" minOccurs="1" maxOccurs="unbounded">
@@ -289,8 +288,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-      <!-- Optional element to be returned for Baylor results -->
-      <xs:element name="genomic" type="xs:string" minOccurs="0" maxOccurs="1" />
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="Reference">
@@ -401,11 +398,6 @@
                   </xs:choice>
                 </xs:complexType>
               </xs:element>
-
-              <!-- Optional element to be returned for Baylor sites -->
-              <xs:element name="vipFile" minOccurs="0" maxOccurs="1" />
-              <!-- Optional element (collection) to be returned for Baylor sites -->
-              <xs:element name="geneCoverage" type="GeneCoverage" minOccurs="0" maxOccurs="1" />
             </xs:choice>
           </xs:complexType>
         </xs:element>
@@ -451,10 +443,16 @@
                     <xs:element name="interpretedDiseases" minOccurs="0" maxOccurs="1">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="org.pcpgm.gis.fedmsg.v4.ReportDisease" type="ReportDisease" minOccurs="1" maxOccurs="unbounded" />
+                          <xs:element name="org.pcpgm.gis.fedmsg.v4.ReportDisease" type="ReportDisease" minOccurs="0" maxOccurs="unbounded" />
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>
+                    <!-- Optional element to be returned for Baylor sites -->
+                    <xs:element name="vipFile" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <!-- Optional element (collection) to be returned for Baylor sites -->
+                    <xs:element name="geneCoverage" type="GeneCoverage" minOccurs="0" maxOccurs="1" />
+                    <!-- Optional element to be returned for Baylor sites -->
+                    <xs:element name="addendums" type="xs:string" minOccurs="0" maxOccurs="1" />
                   </xs:choice>
                 </xs:complexType>
               </xs:element>
