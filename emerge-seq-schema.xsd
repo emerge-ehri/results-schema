@@ -173,7 +173,7 @@
             <xs:element name="category" type="Code" minOccurs="0" maxOccurs="1" />
             <xs:element name="genomicSource" type="Code" minOccurs="0" maxOccurs="1" />
             <!-- Optional element to be returned for Baylor sites -->
-            <xs:element name="confirmedStatus" type="ConfirmedStatus" minOccurs="0" maxOccurs="1" />
+            <xs:element name="confirmedStatus" type="HGSCConfirmedStatus" minOccurs="0" maxOccurs="1" />
             <!-- Optional element to be returned for Baylor sites -->
             <xs:element name="notes" type="xs:string" minOccurs="0" maxOccurs="1" />
           </xs:choice>
@@ -357,7 +357,7 @@
     </xs:choice>
   </xs:complexType>
   <!-- This type is currently just used for Baylor results -->
-  <xs:complexType name="GeneCoverage">
+  <xs:complexType name="HGSCGeneCoverage">
     <xs:sequence>
       <xs:element name="genes" minOccurs="0" maxOccurs="1">
         <xs:complexType>
@@ -376,9 +376,22 @@
     </xs:sequence>
   </xs:complexType>
   <!-- This type is currently just used for Baylor results -->
-  <xs:complexType name="ConfirmedStatus">
+  <xs:complexType name="HGSCConfirmedStatus">
     <xs:sequence>
       <xs:element name="confirmedBySanger" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+  <!-- This type is currently just used for Baylor results -->
+  <xs:complexType name="HGSCAddendums">
+    <xs:sequence>
+      <xs:element name="addendum" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:choice maxOccurs="unbounded">
+            <xs:element name="onDate" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+            <xs:element name="addendumText" type="xs:string" minOccurs="1" maxOccurs="1" />
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -450,9 +463,9 @@
                     <!-- Optional element to be returned for Baylor sites -->
                     <xs:element name="vipFile" type="xs:string" minOccurs="0" maxOccurs="1" />
                     <!-- Optional element (collection) to be returned for Baylor sites -->
-                    <xs:element name="geneCoverage" type="GeneCoverage" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="geneCoverage" type="HGSCGeneCoverage" minOccurs="0" maxOccurs="1" />
                     <!-- Optional element to be returned for Baylor sites -->
-                    <xs:element name="addendums" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="addendums" type="HGSCAddendums" minOccurs="0" maxOccurs="1" />
                   </xs:choice>
                 </xs:complexType>
               </xs:element>
