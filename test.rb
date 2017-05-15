@@ -11,10 +11,13 @@ end
 
 Dir.glob('./data/*.xml') do |item|
   next if item == '.' or item == '..'
-  # do work on real items
-  validate(item, 'emerge-seq-schema.xsd').each do |error|
-    puts "#{error.line}: #{error.message}"
+  results = validate(item, 'emerge-seq-schema.xsd')
+  unless results.empty?
+    puts "#{item}"
+    results.each do |error|
+      puts "   #{error.line}: #{error.message}"
+    end
   end
-
 end
 
+puts "DONE"
