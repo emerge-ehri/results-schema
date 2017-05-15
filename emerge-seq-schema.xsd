@@ -207,7 +207,7 @@
   <xs:complexType name="VariantInterp">
     <xs:choice maxOccurs="unbounded">
       <xs:element name="categoryType" type="xs:string" minOccurs="1" maxOccurs="1" />
-      <xs:element name="inheritance" type="xs:int" minOccurs="1" maxOccurs="1" />
+      <xs:element name="inheritance" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="interpretationText" type="xs:string" minOccurs="1" maxOccurs="1" />
       <xs:element name="categoryCode" type="Code" minOccurs="1" maxOccurs="1" />
       <xs:element name="diseaseCodes" minOccurs="0" maxOccurs="unbounded">
@@ -252,14 +252,14 @@
           <xs:sequence>
             <xs:element name="org.pcpgm.gis.fedmsg.v4.ReferenceVariantAlignment" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
-                <xs:sequence>
+                <xs:choice maxOccurs="unbounded">
                   <xs:element name="genomeBuildName" type="xs:string" minOccurs="0" maxOccurs="1" />
                   <xs:element name="chromosome" type="xs:string" minOccurs="0" maxOccurs="1" />
                   <xs:element name="startPosition" type="xs:int" minOccurs="1" maxOccurs="1" />
                   <xs:element name="endPosition" type="xs:int" minOccurs="1" maxOccurs="1" />
                   <xs:element name="wildtypeSeq" type="xs:string" minOccurs="0" maxOccurs="1" />
                   <xs:element name="variantSeq" type="xs:string" minOccurs="0" maxOccurs="1" />
-                </xs:sequence>
+                </xs:choice>
               </xs:complexType>
             </xs:element>
           </xs:sequence>
