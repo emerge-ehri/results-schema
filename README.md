@@ -4,7 +4,7 @@ Schema used within the [eMERGE network](https://emerge.mc.vanderbilt.edu/) for t
 
 Some elements within the schema have coded concepts, which are defined by pre-existing value sets where possible.  [Additional documentation](doc/CodedConcepts.md) describes which elements and value sets are used.
 
-For example XML documents, please see the [examples folder](examples).
+For example XML documents, please see the [examples folder](examples/README.md).
 
 ## Acknowledgements
 
